@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameClassDSL:Course
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gameClassDSL="http://www.example.org/gameClassDSL"
+    xsi:schemaLocation="http://www.example.org/gameClassDSL gameClassDSL.ecore"
+    name="EOMod"
+    code="1234"
+    description="A Modeling Course at Nova FCT"
+    maxWeeklyPoints="5">
+  <teachers
+      teaches="1234"
+      name="Vasco Amaral"
+      email="va@campus.fct.unl.pt"/>
+  <teams name="1"
+      size="2">
+    <teamMembers
+        id="1"
+        name="Maria"
+        email="ma@campus.fct.unl.pt"
+        currentLevel="//@levels.0"
+        badges="//@offeredBadges.0"/>
+    <teamMembers
+        id="2"
+        name="Ricardo"
+        email="rc@campus.fct.unl.pt"
+        totalPoints="6"
+        currentLevel="//@levels.1"
+        badges="//@offeredBadges.1"/>
+  </teams>
+  <teams name="2"
+      size="2">
+    <teamMembers
+        id="3"
+        name="Dário"
+        email="da@campus.fct.unl.pt"
+        totalPoints="3"
+        currentLevel="//@levels.0"
+        badges="//@offeredBadges.0"/>
+    <teamMembers
+        id="4"
+        name="Marta"
+        email="mrt@campus.fct.unl.pt"
+        totalPoints="10"
+        currentLevel="//@levels.3"
+        badges="//@offeredBadges.2"/>
+  </teams>
+  <offeredBadges
+      name="Amateur"
+      description="Course work beguinner"/>
+  <offeredBadges
+      name="Proficient"
+      description="An experienced student at modeling!"/>
+  <offeredBadges
+      name="Expert"
+      description="An expert at modelling, given for excelling in the course."/>
+  <leaderboardpolicy
+      name="Minimum Contribution"
+      threshold="2"/>
+  <quests title="Model ecore"
+      dificuldade="1"
+      unlocks_at="//@levels.0">
+    <activities
+        title="Deliver .ecore"
+        required="true"/>
+    <questRewardRule
+        condition="Have a functionally correct model"
+        rewardPoints="2"/>
+  </quests>
+  <quests title="Model xmi"
+      dificuldade="2"
+      unlocks_at="//@levels.1">
+    <activities
+        title="Deliver .xmi"/>
+    <questRewardRule
+        condition="Have a minimum of 2 examples"
+        rewardPoints="3"/>
+  </quests>
+  <quests title="Quiz about modeling"
+      dificuldade="2"
+      unlocks_at="//@levels.0"
+      type="REMEDIATION">
+    <activities
+        title="Complete the moodle quiz about modeling"
+        required="true"/>
+    <questRewardRule
+        condition="grade>50%"
+        rewardPoints="3"/>
+  </quests>
+  <applies trigger="1"
+      assigns="//@quests.2"/>
+  <levels name="Iron"/>
+  <levels name="Silver"
+      level="1"/>
+  <levels name="Gold"
+      level="1"/>
+  <levels name="Diamond"
+      level="3"/>
+</gameClassDSL:Course>

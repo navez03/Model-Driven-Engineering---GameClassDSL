@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gameClassDSL" nsURI="http://www.example.org/gameClassDSL" nsPrefix="gameClassDSL">
+  <eClassifiers xsi:type="ecore:EClass" name="Course">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teachers" lowerBound="1"
+        upperBound="-1" eType="#//Teacher" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teams" lowerBound="1" upperBound="-1"
+        eType="#//Team" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="offeredBadges" upperBound="-1"
+        eType="#//Badge" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxWeeklyPoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leaderboardpolicy" lowerBound="1"
+        eType="#//LeaderboardPolicy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quests" upperBound="-1"
+        eType="#//Quest" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applies" upperBound="-1"
+        eType="#//AdaptationRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
+        eType="#//Level" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Teacher">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teaches" lowerBound="1"
+        eType="#//Course"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Team">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teamMembers" lowerBound="1"
+        upperBound="-1" eType="#//Student" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Student">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalPoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentLevel" lowerBound="1"
+        eType="#//Level"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="badges" upperBound="-1"
+        eType="#//Badge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Level">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Badge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LeaderboardPolicy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Quest">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dificuldade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activities" lowerBound="1"
+        upperBound="-1" eType="#//Activity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="questRewardRule" lowerBound="1"
+        upperBound="-1" eType="#//RewardRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unlocks_at" lowerBound="1"
+        eType="#//Level"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//QuestType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RewardRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rewardPoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdaptationRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assigns" lowerBound="1"
+        eType="#//Quest"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QuestType">
+    <eLiterals name="NORMAL"/>
+    <eLiterals name="REMEDIATION" value="1"/>
+    <eLiterals name="ADVANCED CHALLENGE" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

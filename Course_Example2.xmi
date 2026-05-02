@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameClassDSL:Course
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gameClassDSL="http://www.example.org/gameClassDSL"
+    xsi:schemaLocation="http://www.example.org/gameClassDSL gameClassDSL.ecore"
+    name="EOMod"
+    code="3333"
+    description="A Model Driven Engineering Course at Nova FCT"
+    maxWeeklyPoints="15">
+  <teachers
+      teaches="3333"
+      name="Vasco Amaral"
+      email="va@campus.fct.unl.pt"/>
+  <teams name="1"
+      size="1">
+    <teamMembers
+        id="0"
+        name="Alberto"
+        email="abt@campus.fct.unl.pt"
+        totalPoints="1"
+        currentLevel="//@levels.0"
+        badges="//@offeredBadges.0"/>
+  </teams>
+  <teams name="2"
+      size="2">
+    <teamMembers
+        id="1"
+        name="Rodrigo"
+        email="ra@campus.fct.unl.pt"
+        totalPoints="2"
+        currentLevel="//@levels.0"
+        badges="//@offeredBadges.0"/>
+    <teamMembers
+        id="2"
+        name="Micheal"
+        email="mds@campus.fct.unl.pt"
+        totalPoints="5"
+        currentLevel="//@levels.1"
+        badges="//@offeredBadges.1"/>
+  </teams>
+  <offeredBadges
+      name="Bad"
+      description="Still a bad Student"/>
+  <offeredBadges
+      name="Good"
+      description="A good student"/>
+  <leaderboardpolicy
+      name="Minimum Contribution"
+      threshold="1"/>
+  <quests title="Install Eclipse"
+      dificuldade="1"
+      unlocks_at="//@levels.0">
+    <activities
+        title="Download file"
+        required="true"/>
+    <activities
+        title="Install eclipse"
+        required="true"/>
+    <questRewardRule
+        condition="Be able to open eclipse on your machine"
+        rewardPoints="1"/>
+  </quests>
+  <quests title="Install Eclipse extentions"
+      dificuldade="1"
+      unlocks_at="//@levels.0"
+      type="ADVANCED CHALLENGE">
+    <activities
+        title="Download the Sirius extention for eclipse"
+        required="true"/>
+    <activities
+        title="Download the Xtext extention for eclipse"
+        required="true"/>
+    <questRewardRule
+        condition="Show the teacher the extention in the lab"
+        rewardPoints="3"/>
+  </quests>
+  <applies trigger="1"
+      assigns="//@quests.1"/>
+  <levels name="Noob"/>
+  <levels name="Pro"
+      level="1"/>
+</gameClassDSL:Course>
